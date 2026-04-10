@@ -3,6 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/jpeg" href="/digitalis_logo.jpeg" />
     <meta name="description" content="Afrika Digitalis — Pan-African digital learning platform providing accessible, structured education for all learners including those with cognitive disabilities." />
     <title>Afrika Digitalis | Reimagining Education Access Across Africa</title>
     <meta name="author" content="Afrika Digitalis" />
@@ -10,6 +11,20 @@
     <meta property="og:description" content="Pan-African digital learning platform providing accessible, structured education for all learners." />
     <meta property="og:type" content="website" />
     <meta name="twitter:card" content="summary_large_image" />
+    <script>
+      (function (l) {
+        if (l.search[1] !== "/") return;
+        var decoded = l.search
+          .slice(1)
+          .replace(/~and~/g, "&")
+          .replace(/^\/\?/, "");
+        window.history.replaceState(
+          null,
+          "",
+          l.pathname.slice(0, -1) + decoded + l.hash
+        );
+      })(window.location);
+    </script>
   </head>
 
   <body>

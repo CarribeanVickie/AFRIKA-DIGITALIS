@@ -15,11 +15,32 @@ const Contact = () => {
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setLoading(true);
-    setTimeout(() => {
-      setLoading(false);
-      toast({ title: "Message sent!", description: "We'll get back to you within 48 hours." });
-      (e.target as HTMLFormElement).reset();
-    }, 1000);
+
+    const form = e.currentTarget;
+    const formData = new FormData(form);
+    const name = String(formData.get("name") ?? "");
+    const email = String(formData.get("email") ?? "");
+    const org = String(formData.get("org") ?? "");
+    const type = String(formData.get("type") ?? "general");
+    const message = String(formData.get("message") ?? "");
+
+    const subject = encodeURIComponent(`Website Contact: ${type}`);
+    const body = encodeURIComponent(
+      [
+        `Name: ${name}`,
+        `Email: ${email}`,
+        `Organization: ${org || "N/A"}`,
+        `Inquiry Type: ${type}`,
+        "",
+        "Message:",
+        message,
+      ].join("\n")
+    );
+
+    window.location.href = `mailto:alvinmuchirim@gmail.com?subject=${subject}&body=${body}`;
+    setLoading(false);
+    toast({ title: "Opening email app", description: "Please send the draft message to complete your inquiry." });
+    form.reset();
   };
 
   return (
@@ -76,7 +97,12 @@ const Contact = () => {
                   <Mail className="h-5 w-5 text-primary" aria-hidden="true" />
                 </div>
                 <h3 className="font-semibold mb-1">Email</h3>
-                <p className="text-muted-foreground text-sm">hello@afrikadigitalis.org</p>
+                <a
+                  href="mailto:alvinmuchirim@gmail.com"
+                  className="text-muted-foreground text-sm hover:text-foreground transition-colors"
+                >
+                  alvinmuchirim@gmail.com
+                </a>
               </div>
               <div>
                 <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center mb-3">
@@ -90,7 +116,7 @@ const Contact = () => {
                   <Phone className="h-5 w-5 text-primary" aria-hidden="true" />
                 </div>
                 <h3 className="font-semibold mb-1">Phone</h3>
-                <p className="text-muted-foreground text-sm">+254 700 000 000</p>
+                <p className="text-muted-foreground text-sm">+254 798 830059</p>
               </div>
             </div>
           </div>

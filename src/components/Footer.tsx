@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import logo from "@/assets/logo.png";
+import logo from "@/assets/digitalis_logo.jpeg";
 
 const Footer = () => (
   <footer className="bg-primary text-primary-foreground" role="contentinfo">
@@ -7,7 +7,7 @@ const Footer = () => (
       <div className="grid grid-cols-1 md:grid-cols-4 gap-10">
         <div className="md:col-span-1">
           <div className="flex items-center gap-2 mb-4">
-            <img src={logo} alt="" className="h-8 w-8 brightness-0 invert" aria-hidden="true" />
+            <img src={logo} alt="" className="h-8 w-8 object-contain" aria-hidden="true" />
             <span className="text-lg font-bold">Afrika Digitalis</span>
           </div>
           <p className="text-primary-foreground/70 text-sm leading-relaxed">
@@ -33,7 +33,7 @@ const Footer = () => (
         </div>
         <div>
           <h3 className="font-semibold mb-4 text-sm uppercase tracking-wider text-primary-foreground/60">Connect</h3>
-          <p className="text-sm text-primary-foreground/80">hello@afrikadigitalis.org</p>
+          <p className="text-sm text-primary-foreground/80">alvinmuchirim@gmail.com</p>
           <p className="text-sm text-primary-foreground/70 mt-2">Building the future of African education, together.</p>
         </div>
       </div>

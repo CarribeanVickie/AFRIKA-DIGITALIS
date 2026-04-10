@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import logo from "@/assets/logo.png";
+import logo from "@/assets/digitalis_logo.jpeg";
 
 const navLinks = [
   { label: "Home", path: "/" },
@@ -21,7 +21,7 @@ const Navbar = () => {
     <nav className="sticky top-0 z-50 bg-card/80 backdrop-blur-lg border-b border-border" role="navigation" aria-label="Main navigation">
       <div className="container flex items-center justify-between h-16">
         <Link to="/" className="flex items-center gap-2" aria-label="Afrika Digitalis home">
-          <img src={logo} alt="Afrika Digitalis logo" className="h-9 w-9" />
+          <img src={logo} alt="Afrika Digitalis logo" className="h-9 w-9 object-contain" />
           <span className="text-lg font-bold text-primary hidden sm:inline">Afrika Digitalis</span>
         </Link>
 
@@ -40,7 +40,6 @@ const Navbar = () => {
               {l.label}
             </Link>
           ))}
-          <Button size="sm" className="ml-3">Get Started</Button>
         </div>
 
         {/* Mobile toggle */}
@@ -72,7 +71,6 @@ const Navbar = () => {
                 {l.label}
               </Link>
             ))}
-            <Button size="sm" className="mt-2">Get Started</Button>
           </div>
         </div>
       )}

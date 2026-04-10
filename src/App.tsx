@@ -12,13 +12,14 @@ import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
+const routerBase = import.meta.env.BASE_URL.replace(/\/$/, "");
 
 const App = () => (
   <QueryClientProvider client={queryClient}>
     <TooltipProvider>
       <Toaster />
       <Sonner />
-      <BrowserRouter basename="/afrika-digitalis">
+      <BrowserRouter basename={routerBase}>
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/about" element={<About />} />
