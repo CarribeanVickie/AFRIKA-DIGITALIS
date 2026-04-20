@@ -4,8 +4,8 @@ import path from "path";
 import { componentTagger } from "lovable-tagger";
 
 // https://vitejs.dev/config/
-export default defineConfig(({ mode }) => ({
-  base: "/AFRIKA-DIGITALIS/",
+export default defineConfig(({ mode, command }) => ({
+  base: command === "build" ? "/AFRIKA-DIGITALIS/" : "/",
   server: {
     host: "::",
     port: 8080,
